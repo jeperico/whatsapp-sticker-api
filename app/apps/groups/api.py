@@ -1,6 +1,12 @@
 from rest_framework import viewsets
 from .models import Group, Sticker
 from .serializers import GroupSerializer, StickerSerializer
+from rest_framework import (
+  mixins,
+  response,
+  views,
+  viewsets,
+)
 
 class GroupViewSet(
   mixins.RetrieveModelMixin,
@@ -12,7 +18,8 @@ class GroupViewSet(
 ):
   queryset = Group.objects.all()
   serializer_class = GroupSerializer
-  search_fields = ['name', 'description', 'members']
+  search_fields = ['name', 'description']
+  # search_fields = ['name', 'description', 'members']
   
   def retrieve(self, request, *args, **kwargs):
     instance = self.get_object()
@@ -40,7 +47,7 @@ class StickerViewSet(
 ):
   queryset = Group.objects.all()
   serializer_class = StickerSerializer
-  search_fields = ['name', 'description', 'members']
+  search_fields = ['name', 'description', 'image']
   
   def retrieve(self, request, *args, **kwargs):
     instance = self.get_object()
