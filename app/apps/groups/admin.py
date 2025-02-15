@@ -1,3 +1,20 @@
 from django.contrib import admin
+from .models import Group, Sticker
 
-# Register your models here.
+
+class GroupAdmin(admin.ModelAdmin):
+  list_display = ['id', 'name', 'description', 'members', 'created_at', 'updated_at']
+  search_fields = ['name', 'email']
+  list_filter = ['created_at', 'updated_at']
+  readonly_fields = ['created_at', 'updated_at']
+
+admin.site.register(Group, UserAdmin)
+
+
+class StickerAdmin(admin.ModelAdmin):
+  list_display = ['id', 'name', 'image', 'group', 'description', 'created_at', 'updated_at']
+  search_fields = ['name', 'email']
+  list_filter = ['created_at', 'updated_at']
+  readonly_fields = ['created_at', 'updated_at']
+
+admin.site.register(Sticker, UserAdmin)

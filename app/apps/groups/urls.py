@@ -4,14 +4,9 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register('user', api.UserViewSet)
-router.register(
-  'register-user',
-  api.UserRegisterView,
-  basename='register-user'
-)
+router.register(r'groups', api.GroupViewSet)
+router.register(r'stickers', api.StickerViewSet)
 
 urlpatterns = [
   path('', include(router.urls)),
 ]
-
