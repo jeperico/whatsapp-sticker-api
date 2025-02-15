@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_spectacular',
     'apps.profiles',
+    'apps.groups',
 ]
 
 AUTH_USER_MODEL = 'profiles.User'

@@ -8,7 +8,7 @@ class GroupAdmin(admin.ModelAdmin):
   list_filter = ['created_at', 'updated_at']
   readonly_fields = ['created_at', 'updated_at']
 
-admin.site.register(Group, UserAdmin)
+admin.site.register(Group, GroupAdmin)
 
 
 class StickerAdmin(admin.ModelAdmin):
@@ -17,4 +17,4 @@ class StickerAdmin(admin.ModelAdmin):
   list_filter = ['created_at', 'updated_at']
   readonly_fields = ['created_at', 'updated_at']
 
-admin.site.register(Sticker, UserAdmin)
+admin.site.register(Sticker, StickerAdmin)
