@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .models import Group, Sticker
 from .serializers import GroupSerializer, StickerSerializer
+from rest_framework.response import Response
 from rest_framework import (
   mixins,
   response,
@@ -45,9 +46,9 @@ class StickerViewSet(
   mixins.CreateModelMixin,
   viewsets.GenericViewSet,
 ):
-  queryset = Group.objects.all()
+  queryset = Sticker.objects.all()
   serializer_class = StickerSerializer
-  search_fields = ['name', 'description', 'image']
+  search_fields = ['description', 'image']
   
   def retrieve(self, request, *args, **kwargs):
     instance = self.get_object()
@@ -63,9 +64,3 @@ class StickerViewSet(
 
   def perform_create(self, serializer):
     return super().perform_create(serializer)
-
-
-  # group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='stickers')
-  # name = models.CharField(max_length=100)
-  # description = models.TextField()
-  # image = models.ImageField(upload_to='stickers')

@@ -9,4 +9,4 @@ class GroupSerializer(serializers.ModelSerializer):
 class StickerSerializer(serializers.ModelSerializer):
   class Meta:
     model = Sticker
-    fields = ['id', 'name', 'description', 'image', 'created_at', 'updated_at']
+    fields = ['id', 'description', 'image', 'created_at', 'updated_at']
